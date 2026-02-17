@@ -1,31 +1,53 @@
 #include <iostream>
-#include <vector>
 #include "DynamicArray.h"
-
 using namespace std;
 
 int main()
 {
-    clsDynamicArray x;
-    int size = 0, index = 0;
+    clsDynamicArray <long long> array;
+   
+    long long size = 0;
     cout << "Size Input: ";
     cin >> size;
     cout << "--------------\n";
     while (size--)
     {
-        int y = 0;
+        long long y ;
         cin >> y;
-        x.push(y);
-    }
-    cout << "--------------\n";
-    cout << "Print Output:-\n";
-    while (true)
-    {
-        if (x.empty())break;
-        cout << x[index] << " ";
-        x.pop();
-        index++;
+        array.push(y);
     }
 
+    cout << "--------------\n";
+    cout << "Print Front and Back and Max Capacity:-\n";
+
+	cout << "Front: " << array.Front() << "\n";
+	cout << "Back: " << array.Back() << "\n";
+	cout << "Max Capacity: " << array.Max() << "\n";
+
+    cout << "--------------\n";
+    cout << "Print in ascending order:-\n";
+    array.Sort();
+
+    for (long long i = 0; i < array.Size(); ++i)
+    {
+        cout << array[i]<<" ";
+    }
+    cout << "\n";
+
+    cout << "Print in descending order:-\n";
+    array.rSort();
+    for (long long i = 0; i < array.Size(); ++i)
+    {
+        cout << array[i] << " ";
+    }
+    cout << "\n--------------\n";
+    //Clear all elements of the array
+    array.clear();
+
+    cout << "Checking that the array is empty:-\n";
+
+	if (array.empty()) cout << "Array is empty\n";
+    
+    array.~clsDynamicArray();
     return 0;
 }
