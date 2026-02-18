@@ -75,8 +75,11 @@ This project was created to deeply understand how **core data structures** and *
 | 🔹 | **`push()` / `pop()`** operations |
 | 🔹 | **Index-based access** via `operator[]` |
 | 🔹 | **`Front()` / `Back()`** helpers |
-| 🔹 | **`Size()`, `Max()`, `empty()`, `clear()`** |
+| 🔹 | **`Size()`, `Max_size()`, `empty()`, `clear()`** |
 | 🔹 | **Ascending & descending sorting** (`Sort` / `rSort`) |
+| 🔹 | **`Search()`** to find elements |
+| 🔹 | **`Min()` / `Max()`** to get min/max values |
+| 🔹 | **`insert()`** to add element at any position |
 | ⛔ | **No STL containers used** |
 
 </div>
@@ -112,7 +115,19 @@ int main() {
     // 🔄 Sort descending  
     numbers.rSort();
     
-    // 📍 Access by index
+    // � Search for element
+    if (numbers.Search(42)) {
+        std::cout << "Found 42!" << std::endl;
+    }
+    
+    // 📊 Get Min and Max values
+    std::cout << "Min: " << numbers.Min() << std::endl;
+    std::cout << "Max: " << numbers.Max() << std::endl;
+    
+    // 📍 Insert at position
+    numbers.insert(1, 500);  // Insert 500 at index 1
+    
+    // �📍 Access by index
     std::cout << names[0] << std::endl;  // Alice
     
     return 0;
@@ -138,12 +153,16 @@ int main() {
 ║  operator[](i)    │  Access element at index      → T&           ║
 ╠══════════════════════════════════════════════════════════════════╣
 ║  Size()           │  Current number of elements   → ll           ║
-║  Max()            │  Current capacity             → ll           ║
+║  Max_size()       │  Current capacity             → ll           ║
 ║  empty()          │  Check if empty               → bool         ║
 ║  clear()          │  Remove all elements          → void         ║
 ╠══════════════════════════════════════════════════════════════════╣
 ║  Sort()           │  Sort ascending               → void         ║
 ║  rSort()          │  Sort descending              → void         ║
+║  Search(T)        │  Search for element           → bool         ║
+║  Min()            │  Get minimum element          → T            ║
+║  Max()            │  Get maximum element          → T            ║
+║  insert(i, T)     │  Insert element at index      → void         ║
 ╚══════════════════════════════════════════════════════════════════╝
 ```
 
@@ -186,13 +205,15 @@ int main() {
 
 ## 🌱 Roadmap
 
+- [x] ✅ Insert at position
+- [x] ✅ Search functionality
+- [x] ✅ Min/Max element retrieval
 - [ ] 🚧 Bounds checking & safer access
 - [ ] 🚧 Copy constructor & assignment operator (Rule of 3 / 5)
 - [ ] 🚧 Move semantics
 - [ ] 🚧 Iterators support
 - [ ] 🚧 Stack & Queue implementations
 - [ ] 🚧 Shrink-to-fit functionality
-- [ ] 🚧 Insert at position
 - [ ] 🚧 Remove at position
 
 ---

@@ -1,53 +1,33 @@
 #include <iostream>
 #include "DynamicArray.h"
+
 using namespace std;
 
 int main()
 {
     clsDynamicArray <long long> array;
-   
-    long long size = 0;
-    cout << "Size Input: ";
-    cin >> size;
-    cout << "--------------\n";
-    while (size--)
-    {
-        long long y ;
-        cin >> y;
-        array.push(y);
-    }
 
-    cout << "--------------\n";
-    cout << "Print Front and Back and Max Capacity:-\n";
+    array.insert(0, 10);
+    array.insert(1, 20);
+    array.insert(2, 30);
+    array.insert(3, 40);
+    array.insert(4, 50);
 
-	cout << "Front: " << array.Front() << "\n";
-	cout << "Back: " << array.Back() << "\n";
-	cout << "Max Capacity: " << array.Max() << "\n";
-
-    cout << "--------------\n";
-    cout << "Print in ascending order:-\n";
-    array.Sort();
-
-    for (long long i = 0; i < array.Size(); ++i)
-    {
-        cout << array[i]<<" ";
-    }
-    cout << "\n";
-
-    cout << "Print in descending order:-\n";
-    array.rSort();
-    for (long long i = 0; i < array.Size(); ++i)
+    for (int i = 0; i < array.Size(); ++i)
     {
         cout << array[i] << " ";
     }
-    cout << "\n--------------\n";
-    //Clear all elements of the array
-    array.clear();
+    cout << "\n-------------------\n";
+    // Function Min and Max
 
-    cout << "Checking that the array is empty:-\n";
+    cout<<"Max number: " << array.Max() << endl;
+    cout<<"Min number: " << array.Min() << endl;
 
-	if (array.empty()) cout << "Array is empty\n";
-    
-    array.~clsDynamicArray();
+    // Search
+    if (array.Search(30))
+    {
+        cout << "number: " << 30 << endl;
+    }
+
     return 0;
 }
