@@ -5,29 +5,46 @@ using namespace std;
 
 int main()
 {
-    clsDynamicArray <long long> array;
+    clsDynamicArray<long long> array;
+    int indx = 0;
 
-    array.insert(0, 10);
-    array.insert(1, 20);
-    array.insert(2, 30);
-    array.insert(3, 40);
-    array.insert(4, 50);
+    array.push(10);
+    array.push(20);
+    array.push(30);
+    array.push(40);
+    array.push(50);
 
-    for (int i = 0; i < array.Size(); ++i)
+    int s = *array.begin();
+    int e = *array.end();
+
+    cout << "First element: " << s << endl;
+    cout << "Last element: " << s << endl;
+
+    cout << "--------------------------\n";
+
+    cout << "array elements : ";
+    for (auto i = array.begin(); i < array.end(); ++i)
     {
-        cout << array[i] << " ";
+        cout << *i << " ";
     }
-    cout << "\n-------------------\n";
-    // Function Min and Max
+    array.remove(30);
+    cout << "\n--------------------------\n";
 
-    cout<<"Max number: " << array.Max() << endl;
-    cout<<"Min number: " << array.Min() << endl;
-
-    // Search
-    if (array.Search(30))
+    cout << "Array elements after deletion : ";
+    for (auto i = array.begin(); i < array.end(); ++i)
     {
-        cout << "number: " << 30 << endl;
+        cout << *i << " ";
+    }
+    cout << "\n--------------------------\n";
+    cout << "The array elements after deletion of 3 elements : ";
+    array.erase(2);
+    for (auto i = array.begin(); i < array.end(); ++i)
+    {
+        cout << *i << " ";
     }
 
+
+
+    
     return 0;
 }

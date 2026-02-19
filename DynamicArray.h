@@ -7,20 +7,20 @@ class clsDynamicArray
 {
 private:
     ll capacity;
-    ll size;
+    ll Size;
     T* array;
     static ll defult_capacity() { return 45555; }
     void resize(ll newcap)
     {
         T* newarray = new T[newcap];
-        for (ll i = 0; i < size; ++i) newarray[i] = array[i];
+        for (ll i = 0; i < Size; ++i) newarray[i] = array[i];
         delete[]array;
         array = newarray;
         capacity = newcap;
     }
 public:
-    clsDynamicArray() :capacity(defult_capacity()), size(0), array(new T[capacity]) {}
-    clsDynamicArray(ll cap) :capacity(cap > 0 ? cap : defult_capacity()), size(0), array(new T[capacity]) {}
+    clsDynamicArray() :capacity(defult_capacity()), Size(0), array(new T[capacity]) {}
+    clsDynamicArray(ll cap) :capacity(cap > 0 ? cap : defult_capacity()), Size(0), array(new T[capacity]) {}
 
     ~clsDynamicArray()
     {
@@ -28,35 +28,35 @@ public:
     }
     T& Front()const
     {
-        if (size == 0)throw std::out_of_range("-1");
+        if (Size == 0)throw std::out_of_range("-1");
         return array[0];
     }
     T& Back()const
     {
-        if (size == 0) throw std::out_of_range("-1");
-        return array[size-1];
+        if (Size == 0) throw std::out_of_range("-1");
+        return array[Size-1];
     }
     ll Max_size() const{ return capacity; }
-    ll Size() const{ return size; }
+    ll size() const{ return Size; }
     void push(T value)
     {
-        if (size == capacity) resize(capacity * 2);
-        array[size] = value;
-        size++;
+        if (Size == capacity) resize(capacity * 2);
+        array[Size] = value;
+        Size++;
     }
     bool pop()
     {
-        if (size == 0)return false;
-        size--;
+        if (Size == 0)return false;
+        Size--;
         return true;
     }
-    bool empty() const { return size == 0; }
-    void clear() { size = 0; }
+    inline bool empty() const { return Size == 0; }
+    inline void clear() { Size = 0; }
     void Sort()
     {
-        for (ll i = 0; i < size - 1; ++i)
+        for (ll i = 0; i < Size - 1; ++i)
         {
-            for (ll j = 0; j < size - i - 1; ++j)
+            for (ll j = 0; j < Size - i - 1; ++j)
             {
                 if (array[j] > array[j + 1])
                 {
@@ -69,9 +69,9 @@ public:
     }
     void rSort()
     {
-        for (ll i = 0; i < size - 1; ++i)
+        for (ll i = 0; i < Size - 1; ++i)
         {
-            for (ll j = 0; j < size - i - 1; ++j)
+            for (ll j = 0; j < Size - i - 1; ++j)
             {
                 if (array[j] < array[j + 1])
                 {
@@ -85,7 +85,7 @@ public:
     bool Search(T value) const
     {
         ll left = 0;
-        ll right = size - 1;
+        ll right = Size - 1;
         while (left <= right)
         {
             if (array[left] == value || array[right] == value) return true;
@@ -98,10 +98,10 @@ public:
     }
     T Min()
     {
-        if (size == 0) throw std::out_of_range("-1");
+        if (Size == 0) throw std::out_of_range("-1");
         T temp=array[0];
         
-        for (ll i = 1; i < size; ++i)
+        for (ll i = 1; i < Size; ++i)
         {
             if (array[i] < temp)temp = array[i];
         }
@@ -121,9 +121,9 @@ public:
     }
     T Max()
     {
-        if (size == 0) throw std::out_of_range("-1");
+        if (Size == 0) throw std::out_of_range("-1");
         T temp = array[0];
-        for (ll i = 1; i < size; ++i)
+        for (ll i = 1; i < Size; ++i)
         {
             if (array[i] > temp)temp = array[i];
         }
@@ -132,19 +132,49 @@ public:
 
     void insert(ll indx,T value)
     {
-        if (indx<0 || indx>size) throw std::out_of_range("-1");
-        if (size == capacity) resize(capacity * 2);
+        if (indx<0 || indx>Size) throw std::out_of_range("-1");
+        if (Size == capacity) resize(capacity * 2);
 
         T temp = value;
-        for (ll i = indx; i <= size; ++i)
+        for (ll i = indx; i <= Size; ++i)
         {
             T next=array[i];
             array[i] = temp;
             temp = next;
         }
 
-        ++size;
+        ++Size;
     }
+
+    void erase(ll indx)
+    {
+        if (indx<0 || indx >= Size)throw std::out_of_range("-1");
+        for (ll i = indx; i < Size; ++i)
+        {
+            array[i] = array[i + 1];
+        }
+        Size--;
+    }
+
+    inline T* begin() { return array; }
+    inline T* end() { return (array + Size); }
+
+    void remove(T value)
+    {
+        ll write = 0, read = 0;
+        while (read <Size)
+        {
+            if (array[read] != value)
+            {
+                array[write] = array[read];
+                write++;
+            }
+            read++;
+        }
+        Size = write;
+    }
+
+
 
     T& operator[](ll i) const{ return array[i]; }
 };

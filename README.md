@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Animated Header -->
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=🚀+Dynamic+Array+Implementation;Built+from+Scratch+in+C%2B%2B;No+STL+Containers+Used!" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=Dynamic+Array+Implementation;Built+from+Scratch+in+C%2B%2B;No+STL+Containers+Used!" alt="Typing SVG" />
 
 <br/>
 
@@ -80,6 +80,10 @@ This project was created to deeply understand how **core data structures** and *
 | 🔹 | **`Search()`** to find elements |
 | 🔹 | **`Min()` / `Max()`** to get min/max values |
 | 🔹 | **`insert()`** to add element at any position |
+| 🔹 | **`erase()`** to remove element at any position |
+| 🔹 | **`remove()`** to remove all occurrences of a value |
+| 🔹 | **Iterators** support (`begin()` / `end()`) |
+| 🔹 | **Bounds checking** with exception handling |
 | ⛔ | **No STL containers used** |
 
 </div>
@@ -163,6 +167,10 @@ int main() {
 ║  Min()            │  Get minimum element          → T            ║
 ║  Max()            │  Get maximum element          → T            ║
 ║  insert(i, T)     │  Insert element at index      → void         ║
+║  erase(i)         │  Remove element at index      → void         ║
+║  remove(T)        │  Remove all matching elements → void         ║
+║  begin()          │  Iterator to first element    → T*           ║
+║  end()            │  Iterator past last element   → T*           ║
 ╚══════════════════════════════════════════════════════════════════╝
 ```
 
@@ -208,13 +216,14 @@ int main() {
 - [x] ✅ Insert at position
 - [x] ✅ Search functionality
 - [x] ✅ Min/Max element retrieval
-- [ ] 🚧 Bounds checking & safer access
+- [x] ✅ Bounds checking & safer access
+- [x] ✅ Iterators support (`begin()` / `end()`)
+- [x] ✅ Remove at position (`erase()`)
+- [x] ✅ Remove by value (`remove()`)
 - [ ] 🚧 Copy constructor & assignment operator (Rule of 3 / 5)
 - [ ] 🚧 Move semantics
-- [ ] 🚧 Iterators support
 - [ ] 🚧 Stack & Queue implementations
 - [ ] 🚧 Shrink-to-fit functionality
-- [ ] 🚧 Remove at position
 
 ---
 
@@ -239,7 +248,7 @@ int main() {
 
 ### ⭐ Star this repo if you found it helpful!
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=2000&pause=500&color=00FF00&center=true&vCenter=true&width=500&lines=🚀+More+implementations+coming+soon...;📚+Stay+tuned+for+updates!" alt="Coming Soon" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=2000&pause=500&color=00FF00&center=true&vCenter=true&width=500&lines=More+implementations+coming+soon...;Stay+tuned+for+updates!" alt="Coming Soon" />
 
 ---
 
