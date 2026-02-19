@@ -60,7 +60,7 @@ public:
             {
                 if (array[j] > array[j + 1])
                 {
-                    ll temp = array[j];
+                    T temp = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
                 }
